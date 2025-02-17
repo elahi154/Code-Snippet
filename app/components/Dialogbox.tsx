@@ -25,7 +25,7 @@ export default function DialogBox({id, open, setOpen}:Props) {
                 toast.success(res.message);
                 router.push("/")
             }else{
-                toast.error(res?.message!);
+                toast.error(res?.message || "An error occurred.");
             }
 
         } catch (error) {
