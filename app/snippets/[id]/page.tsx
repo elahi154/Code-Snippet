@@ -13,7 +13,8 @@ const SnippetDetailPage = async({params}:Props) => {
     const snippet = await getSnippetsById(id);
   return (
     <div>
-      <SnippetDetails snippet={snippet as Snippit}/>
+      {snippet ? <SnippetDetails snippet={snippet} /> : <p>Snippet not found.</p>}
+
     </div>
   )
 }
