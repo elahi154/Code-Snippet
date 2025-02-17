@@ -1,18 +1,11 @@
 import SnippetDetails from "@/app/components/SnippetDetails";
 import { getSnippetsById } from "@/lib/actions";
 import { Snippit } from "@prisma/client";
+import { PageProps } from "next";  // ✅ Import PageProps to match Next.js expectations
 
-interface Props {
-    params: {
-        id: string;
-    };
-}
+const SnippetDetailPage = async ({ params }: PageProps) => {
+    const { id } = params as { id: string }; // ✅ Explicitly type params
 
-const SnippetDetailPage = async ({ params }: Props) => {
-    // ✅ params is already an object, no need to use `await`
-    const { id } = params; 
-
-    // ✅ Ensure the function call is correct
     const snippet = await getSnippetsById(id);
 
     return (
@@ -23,4 +16,5 @@ const SnippetDetailPage = async ({ params }: Props) => {
 };
 
 export default SnippetDetailPage;
+
 
