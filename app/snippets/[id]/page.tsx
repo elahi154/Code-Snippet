@@ -9,8 +9,8 @@ interface Props {
 }
 
 const SnippetDetailPage = async({params}:Props) => {
-    const {id} = await params;
-    const {data:snippet} = await getSnippetsById(id)
+    const {id} =  params;
+    const snippet = await getSnippetsById(id);
   return (
     <div>
       <SnippetDetails snippet={snippet as Snippit}/>
